@@ -1,0 +1,14 @@
+com\example\solarshare\SolarshareApplication.class
+com\example\solarshare\repository\ConsumptionLogRepository.class
+com\example\solarshare\model\ConsumptionLog.class
+com\example\solarshare\model\Installation.class
+com\example\solarshare\repository\GenerationLogRepository.class
+com\example\solarshare\controller\SolarController.class
+com\example\solarshare\model\Household.class
+com\example\solarshare\service\SolarService.class
+com\example\solarshare\dto\DailyUsage.class
+com\example\solarshare\repository\HouseholdRepository.class
+com\example\solarshare\exception\GlobalExceptionHandler.class
+com\example\solarshare\repository\InstallationRepository.class
+com\example\solarshare\dto\MonthlySummary.class
+com\example\solarshare\model\GenerationLog.class

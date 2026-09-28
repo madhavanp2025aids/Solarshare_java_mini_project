@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="SolarShare - A premium community rooftop solar usage tracker. Manage installations, track consumption, and view net usage with ease.">
+    <title>SolarShare | Community Solar Tracker</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header class="navbar">
+        <div class="logo">
+            <span class="icon">☀️</span>
+            <h1>SolarShare</h1>
+        </div>
+        <nav>
+            <a href="#setup" class="nav-link">Setup</a>
+            <a href="#logs" class="nav-link">Logs</a>
+            <a href="#summary" class="nav-link">Summary</a>
+        </nav>
+    </header>
+
+    <main class="container">
+        <!-- Setup Section -->
+        <section id="setup" class="dashboard-grid">
+            <div class="glass-card">
+                <h2>1. Create Installation</h2>
+                <p class="subtitle">Set up your community solar grid.</p>
+                <form id="installationForm">
+                    <div class="input-group">
+                        <label for="instName">Installation Name</label>
+                        <input type="text" id="instName" placeholder="e.g. Sunny Meadows" required>
+                    </div>
+                    <button type="submit" class="btn primary-btn">Create</button>
+                </form>
+                <div id="instResult" class="feedback"></div>
+            </div>
+
+            <div class="glass-card">
+                <h2>2. Add Household</h2>
+                <p class="subtitle">Assign a share of the generated energy.</p>
+                <form id="householdForm">
+                    <div class="input-group">
+                        <label for="hhInstId">Installation ID</label>
+                        <input type="number" id="hhInstId" placeholder="ID" required>
+                    </div>
+                    <div class="input-group">
+                        <label for="hhName">Household Name</label>
+                        <input type="text" id="hhName" placeholder="e.g. Smith Family" required>
+                    </div>
+                    <div class="input-group">
+                        <label for="hhRatio">Allocation Ratio (0.0 to 1.0)</label>
+                        <input type="number" step="0.01" id="hhRatio" placeholder="0.25" required>
+                    </div>
+                    <button type="submit" class="btn primary-btn">Add Household</button>
+                </form>
+                <div id="hhResult" class="feedback"></div>
+            </div>
+        </section>
+
+        <!-- Logs Section -->
+        <section id="logs" class="dashboard-grid">
+            <div class="glass-card">
+                <h2>3. Log Generation</h2>
+                <p class="subtitle">Record daily total solar yield.</p>
+                <form id="genForm">
+                    <div class="input-group">
+                        <label for="genInstId">Installation ID</label>
+                        <input type="number" id="genInstId" required>
+                    </div>
+                    <div class="input-group">
+                        <label for="genDate">Date</label>
+                        <input type="date" id="genDate" required>
+                    </div>
+                    <div class="input-group">
+                        <label for="genUnits">Units Generated (kWh)</label>
+                        <input type="number" step="0.1" id="genUnits" required>
+                    </div>
+                    <button type="submit" class="btn secondary-btn">Log Generation</button>
+                </form>
+                <div id="genResult" class="feedback"></div>
+            </div>
+
+            <div class="glass-card">
+                <h2>4. Log Consumption</h2>
+                <p class="subtitle">Record daily household usage.</p>
+                <form id="consForm">
+                    <div class="input-group">
+                        <label for="consHhId">Household ID</label>
+                        <input type="number" id="consHhId" required>
+                    </div>
+                    <div class="input-group">
+                        <label for="consDate">Date</label>
+                        <input type="date" id="consDate" required>
+                    </div>
+                    <div class="input-group">
+                        <label for="consUnits">Units Consumed (kWh)</label>
+                        <input type="number" step="0.1" id="consUnits" required>
+                    </div>
+                    <button type="submit" class="btn secondary-btn">Log Consumption</button>
+                </form>
+                <div id="consResult" class="feedback"></div>
+            </div>
+        </section>
+
+        <!-- Summary Section -->
+        <section id="summary" class="summary-section">
+            <div class="glass-card full-width">
+                <h2>5. Monthly Net Usage Summary</h2>
+                <p class="subtitle">Compute household share and grid exports.</p>
+                <form id="summaryForm" class="inline-form">
+                    <div class="input-group">
+                        <label for="sumHhId">Household ID</label>
+                        <input type="number" id="sumHhId" required>
+                    </div>
+                    <div class="input-group">
+                        <label for="sumYear">Year</label>
+                        <input type="number" id="sumYear" value="2023" required>
+                    </div>
+                    <div class="input-group">
+                        <label for="sumMonth">Month</label>
+                        <input type="number" id="sumMonth" value="10" required>
+                    </div>
+                    <button type="submit" class="btn accent-btn">Generate Report</button>
+                </form>
+                <div id="summaryResult" class="report-area"></div>
+            </div>
+        </section>
+    </main>
+    <script src="app.js"></script>
+</body>
+</html>
